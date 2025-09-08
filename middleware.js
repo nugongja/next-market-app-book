@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function middleware(request) {
   //const token = await request.headers.get("Authorization")?.split(" ")[1]; // 토큰 취득을 완료한 뒤 다음 처리를 진행하기 위해서 await
   const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15QGVtYWlsLmNvbSIsImV4cCI6MTc1NzIzMjUzM30.wx-wntpTVGNYDG9T68WyEFbA2buPKwq65e3p4VNPU08";
+    "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15QGdtYWlsLmNvbSIsImV4cCI6MTc1NzM0MjE1NX0.CjtbSu2gvGT1oaKwO8g2kaYx5WayTi0-B_R7QzfDEWU";
 
   if (!token) {
     return NextResponse.json({ message: "토큰이 없습니다." });

@@ -1,0 +1,56 @@
+"use client";
+import { useState } from "react";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/api/user/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      const jsonData = await response.json();
+      localStorage.setItem("token", jsonData.token);
+      alert(jsonData.message);
+    } catch {
+      alert("로그인 실패");
+    }
+  };
+
+  return (
+    <div>
+      <h1>로그인</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          name="email"
+          placeholder="메일 주소"
+          required
+        />
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="text"
+          name="password"
+          placeholder="비밀번호"
+          required
+        />
+        <button>로그인</button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

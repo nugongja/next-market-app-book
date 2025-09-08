@@ -23,8 +23,6 @@ export async function POST(request) {
           .setExpirationTime("1d") // 유효시간
           .sign(secretKey); // 시크릿 키
 
-        console.log(token);
-
         return NextResponse.json({ message: "로그인 성공", token: token });
       } else {
         return NextResponse.json({
