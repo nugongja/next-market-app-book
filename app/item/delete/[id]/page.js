@@ -11,3 +11,5 @@ const DeleteItem = async (context) => {
     </div>
   );
 };
+
+export default DeleteItem;

@@ -19,15 +19,18 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/user/register", {
-        method: "POST", // GET, POST, PUT, DELETE
-        headers: {
-          // 데이터 종류 및 보충 정보 작성
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser), // 백엔드에 송신하는 데이터 작성 -> JSON형식으로 변환하는 JSON.stringify로 감싸줌
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL}/api/user/register`,
+        {
+          method: "POST", // GET, POST, PUT, DELETE
+          headers: {
+            // 데이터 종류 및 보충 정보 작성
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser), // 백엔드에 송신하는 데이터 작성 -> JSON형식으로 변환하는 JSON.stringify로 감싸줌
+        }
+      );
       const jsonData = await response.json();
       alert(jsonData.message);
     } catch {

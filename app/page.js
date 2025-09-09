@@ -2,9 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const getAllItems = async () => {
-  const response = await fetch("http://localhost:3000/api/item/readall", {
-    cache: "no-store", // Next.js에서는 기본적으로 캐시를 사용함 -> but, 데이터를 업데이트해도 값이 반영되지 않을 때가 있으므로 캐시를 사용하지 않도록 설정함
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/api/item/readall`,
+    {
+      cache: "no-store", // Next.js에서는 기본적으로 캐시를 사용함 -> but, 데이터를 업데이트해도 값이 반영되지 않을 때가 있으므로 캐시를 사용하지 않도록 설정함
+    }
+  );
   const jsonData = await response.json();
   const allItems = jsonData.allItems;
   return allItems;

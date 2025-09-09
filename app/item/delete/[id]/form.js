@@ -11,7 +11,7 @@ const DeleteItem = (props) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:3000/api/item/delete/${props.params.id}`,
+        `${process.env.NEXT_PUBLIC_URL}/api/item/delete/${props.params.id}`,
         {
           method: "DELETE",
           headers: {
@@ -20,7 +20,7 @@ const DeleteItem = (props) => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           body: JSON.stringify({
-            email: email,
+            email: loginUserEmail,
           }),
         }
       );
@@ -52,7 +52,7 @@ const DeleteItem = (props) => {
       </div>
     );
   } else {
-    <h1>권한이 없습니다.</h1>;
+    return <h1>권한이 없습니다.</h1>;
   }
 };
 

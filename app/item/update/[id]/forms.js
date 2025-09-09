@@ -9,7 +9,7 @@ const UpdateItem = (props) => {
   const handleSubmit = async (formData) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/item/update/${props.params.id}`,
+        `${process.env.NEXT_PUBLIC_URL}/api/item/update/${props.params.id}`,
         {
           method: "PUT",
           headers: {
