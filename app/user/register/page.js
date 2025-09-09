@@ -37,7 +37,8 @@ const Register = () => {
 
   return (
     <div>
-      <h1>사용자 등록</h1>
+      <header>헤더입니다.</header>
+      <h1 className="page-title">사용자 등록</h1>
       <form onSubmit={handleSubmit}>
         <input
           value={newUser.name} // value : 이 input에 입력된 데이터

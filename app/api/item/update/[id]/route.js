@@ -8,7 +8,7 @@ export async function PUT(request, context) {
     await connectDB();
     const params = await context.params;
     const singleItem = await ItemModel.findById(params.id);
-
+    console.log(reqBody);
     if (singleItem.email === reqBody.email) {
       await ItemModel.updateOne({ _id: params.id }, reqBody);
       return NextResponse.json({ message: "아이템 수정 성공" });

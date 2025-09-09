@@ -3,7 +3,7 @@ import { ItemModel } from "@/app/utils/schemaModels";
 import connectDB from "@/app/utils/database";
 
 export async function DELETE(request, context) {
-  const reqBody = await request.body;
+  const reqBody = await request.json();
   try {
     await connectDB();
     const params = await context.params;
